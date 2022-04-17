@@ -65,7 +65,7 @@ SearchforBook(query){
                             }
                               <div className="book-shelf-changer">
                                 
-                                <select value={book.shelf!==undefined?book.shelf :"none" } onChange={((e)=>UpdateBookShelf(book,e.target.value,))}>
+                                <select value={book.shelf!==undefined?book.shelf :"none" } onChange={((e)=>{UpdateBookShelf(book,e.target.value);book.shelf=e.target.value})}>
                                   <option value="move" disabled>   Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
