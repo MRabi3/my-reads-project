@@ -1,20 +1,20 @@
-# Contacts Project
+# My Reads Project
 
-This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
+This repo is a code-along for the My Reads project [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
 
-Most of the commits in this repository correspond to videos in the program.
+
 
 ## Project Setup
 
-* clone the Project - `git clone https://github.com/udacity/reactnd-contacts-complete.git`
+* clone the Project - `git clone https://github.com/MRabi3/my-reads-project.git`
 * install the dependencies - `npm install`
+* run the application - `npm start`
 
-## Contributing
+## Project Hierarchy
+the project contains two pages:
+- Listing page, shows the shelfs for my books (currently Reading, Want to read, and read)
+- search page to access all the books and choose what I need to include in the shelfs
 
-Because this is a code-along project and the commits correspond to specific videos in the program, we will not be accepting pull requests.
+## Certification
 
-If you feel like there's a major problem, please open an issue to discuss the problem and potential resolution.
-
-## Contributing
-
-MIT
+This project is dedicated for class delivery, please avoid to copy or clone the code to avoid pragalism and cheating constrains by Udacity
