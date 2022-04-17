@@ -17,4 +17,4 @@ the project contains two pages:
 
 ## Certification
 
-This project is dedicated for class delivery, please avoid to copy or clone the code to avoid pragalism and cheating constrains by Udacity
+This project is dedicated for class delivery, please avoid to copy or clone the code to avoid plagiarism and cheating constrains by Udacity
