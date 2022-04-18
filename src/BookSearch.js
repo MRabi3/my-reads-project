@@ -24,6 +24,9 @@ SearchforBook(query){
   BooksAPI.search(query).then((books)=>{
     if(books.error===undefined)
     {
+      this.props.userBooks.forEach(book => {
+        books.filter((b)=>b.id===book.id).map((b)=>b.shelf=book.shelf)
+      })
     this.setState(()=>({
       booksResults:books
   }))
@@ -37,7 +40,7 @@ SearchforBook(query){
 
 
     render(){
-      const {UpdateBookShelf} = this.props
+      const {UpdateBookShelf} = this.props.UpdateBookShelf
       const { booksResults } = this.state
    
 

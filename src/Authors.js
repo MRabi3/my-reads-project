@@ -1,9 +1,8 @@
-import React,{Component} from 'react';
+import React from 'react';
 
-class Authors extends Component{
-
-    render(){
-const {authors} = this.props
+function Authors(props){
+  
+const {authors} = props
         return(
             <div className="book-authors">
                 {
@@ -12,8 +11,7 @@ const {authors} = this.props
                         ))
                 }
             </div>
-        );
-    }
+        );   
 }
 
 export default Authors;

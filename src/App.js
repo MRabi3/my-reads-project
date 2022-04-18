@@ -27,7 +27,11 @@ this.GetBooks();
 }
 UpdateBookShelf=((book,shelf)=>{
 BooksAPI.update(book,shelf).then(()=>{
-this.GetBooks();
+  book.shelf=shelf
+  this.setState((currentState)=>({
+    books: currentState.books.filter(b => b.id !== book.id).concat([ book ])
+  }))
+  
 })
 })
 // createContact=((contact)=>{
@@ -47,7 +51,7 @@ this.GetBooks();
   
     )} ></Route>
      <Route path='/search' render={()=>(
-       <BookSearch UpdateBookShelf={this.UpdateBookShelf}/>
+       <BookSearch UpdateBookShelf={this.UpdateBookShelf} userBooks={this.state.books}/>
      )} ></Route>    
      
       </div>
