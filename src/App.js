@@ -4,6 +4,16 @@ import {Route} from 'react-router-dom';
 import BooksList from './BooksList';
 import BookSearch from './BookSearch';
 import './App.css';
+import { Switch } from 'react-router-dom';
+
+
+const NoMatchPage = () => {
+  return (
+    <h3>404 - Not found</h3>
+  );
+};
+
+
 class App extends Component {
 state ={
   books : []
@@ -46,6 +56,7 @@ BooksAPI.update(book,shelf).then(()=>{
   render() {
     return (
       <div className='app'>
+        <Switch>
          <Route exact path='/' render={()=>(
       <BooksList books={this.state.books} UpdateBookShelf={this.UpdateBookShelf} />
   
@@ -53,7 +64,8 @@ BooksAPI.update(book,shelf).then(()=>{
      <Route path='/search' render={()=>(
        <BookSearch UpdateBookShelf={this.UpdateBookShelf} userBooks={this.state.books}/>
      )} ></Route>    
-     
+     <Route component={NoMatchPage} />
+     </Switch>
       </div>
     );
   }

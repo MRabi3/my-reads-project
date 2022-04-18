@@ -13,9 +13,9 @@ clearQuery=(()=>(
 
 UpdateQuery=((query)=>{
   this.setState(()=>({
-  query:query.trim()
+  query:query
   }))
-  this.SearchforBook(query);
+  this.SearchforBook(query.trim());
 })
 
 
@@ -31,6 +31,12 @@ SearchforBook(query){
       booksResults:books
   }))
 }
+else
+{
+  this.setState(()=>({
+    booksResults:[]
+}))
+}
 }).catch(()=>{
   this.setState(()=>({
     booksResults:[]
@@ -38,9 +44,14 @@ SearchforBook(query){
 }) 
 }
 
-
+OnUpdateBookShelf(book,shelf){
+  this.state.booksResults.filter((b)=>b.id===book.id).map((b)=>b.shelf=book.shelf)
+  this.setState((currentState)=>({
+    booksResults:currentState.booksResults
+}))
+  this.props.UpdateBookShelf(book,shelf)
+}
     render(){
-      const {UpdateBookShelf} = this.props.UpdateBookShelf
       const { booksResults } = this.state
    
 
@@ -58,7 +69,7 @@ SearchforBook(query){
             <div className="search-books-results">
               <ol className="books-grid">
               {
-                booksResults.map((book,i)=>(
+              booksResults.length>0 ?  booksResults.map((book,i)=>(
                         <li key={i}>
                           <div className="book">
                             <div className="book-top">
@@ -68,7 +79,7 @@ SearchforBook(query){
                             }
                               <div className="book-shelf-changer">
                                 
-                                <select value={book.shelf!==undefined?book.shelf :"none" } onChange={((e)=>{UpdateBookShelf(book,e.target.value);book.shelf=e.target.value})}>
+                                <select value={book.shelf!==undefined?book.shelf :"none" } onChange={((e)=>this.OnUpdateBookShelf(book,e.target.value))}>
                                   <option value="move" disabled>   Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
@@ -88,7 +99,7 @@ SearchforBook(query){
                         </li>
   
                          ))
-                        
+                        : <div>No result found</div>
                     }
               </ol>
             </div>

@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
 
-class ManageShelf extends Component{
-
-    render(){
+function ManageShelf(){
 
         return(
 <div className="book-shelf-changer">
@@ -16,6 +14,6 @@ class ManageShelf extends Component{
                             </div>
 
         );
-    }
+    
 }
 export default ManageShelf;
